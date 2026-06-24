@@ -1,2 +1,19 @@
-# DSA-Journey-CPP
-DSA learning journey in C++ |  Topics, assignments, practice questions, and problem-solving progress.
+# DSA-Journey-C++
+
+This repository contains my Data Structures and Algorithms learning journey.
+
+## Topics Covered
+-Basics
+-Operators
+-Conditional Statements
+-Loops
+-Functions
+-Pointers
+-Patterns
+-Binay Number System
+
+## Language
+C++
+
+## Goal 
+To strengthen problem-solving and DSA skills through regular practise.
