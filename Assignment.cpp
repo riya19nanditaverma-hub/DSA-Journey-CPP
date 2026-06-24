@@ -1,57 +1,77 @@
-/* Q1- TELL THE OUTPUT.
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
+void binTOdec(int binNum){
+int n= binNum;                                      //binary to decimal--->lastdig= n % 10; n= n/10; pow = 1; pow = pow*2; 
+int pow= 1;                                         //2^0 =1
+int decNum = 0;
+while(n > 0){
+    int lastDig = n % 10;
+    decNum = lastDig * pow + decNum;
+    pow= pow * 2;
+    n = n / 10;
+}
+cout << "decimal form of "<< binNum << "is =  " << decNum << endl;
+}
+
+
+void decTObin(int decNum){
+    int n= decNum;
+    int pow = 1;                                    //decimal to binary--> remainder division method --> remainder * pow and pow = pow * 10
+    int binNum = 0;
+    while ( n > 0){
+        int rem = n % 2;
+        binNum = rem * pow + binNum;
+        pow = pow * 10;
+        n = n / 2;
+    }
+    cout << "binary form of  " << decNum << " = " << binNum << endl;
+}
+
 int main(){
-    int x;
-    int *ptr;
-    x=7;
-    ptr = &x;
-    cout << ptr << endl;
-    cout << &x <<endl;
-    cout << x << endl;
+    decTObin(25);
+    decTObin(49);
+    decTObin(31);
+    decTObin(88);
+    binTOdec(111111);
+    binTOdec(10110);
+    binTOdec(10011);
+    binTOdec(110010);
+    binTOdec(10);
     return 0;
-}
-OUTPUT- &x == 7   */
+}           */
 
 
 
 
 
-/*Q2- TELL THE OUTPUT.
+/*dec to binary -----> binary addition --> binary to decimal. 
+
 #include<iostream>
 using namespace std;
 
-void multipleBy(int &a, int &b, int &c){            //a,b,c is the alias for the original value passed by the main function.
-    a = a*2;                                        //a refers to x, b to y and c to z.
-    b *= 2;                                         //call by reference.
-    c *= 2;
+int sum(int decNum1, int decNum2){          //remainder-division method
+    int binNum=0;                           //dec num ---> bin num
+    int pow = 1;                            //10^0=1
+    int carry = 0; 
+    int n= decNum1;
+    int m= decNum2;  
+    int answer = 0;                                        
+    while((n > 0)|| carry ||(m>0)){
+        int bit1 = n % 2;
+        int bit2 = m % 2;
+        int sum = bit1 + bit2 + carry;
+        int answer = answer + (sum % 2) * pow;
+        carry = sum / 2;
+        pow = pow * 10;
+        n = n / 2;
+        m = m / 2;
+    }
+   cout << answer << endl; 
+return answer;
 }
 
 int main(){
-    int x = 1, y=2, z = 3;
-    multipleBy(x, y,z);
-    cout << x << y << z<<endl;
+    sum(63,22);
     return 0;
-}
-//initially a = 1, so a =a*2 == 2 similarly with b and c. 
-output => a=2, b=4, c=6. thus ans==246 */
-
-
-
-
-
-
-//Q3 - TELL THE OUTPUT OF THE CODE- 
-#include<iostream>
-using namespace std;
-int main(){
-int a = 32;
-int *ptr = &a;
-char ch = 'A';                  //ASCII of 'A' = 65
-char &cho = ch;                     // ch and cho - same memory means reference. 
-cho += a;
-*ptr += ch;
-cout << a << " , " << ch << endl;
-return 0;
-}
+}                           */
